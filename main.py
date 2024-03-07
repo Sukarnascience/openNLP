@@ -8,6 +8,7 @@ import speech_recognition as sr
 import re
 
 hotKey = "robot"
+speed = 150
 
 def remove_special_chars(text):
     special_chars = '()[]!*\n^'
@@ -35,6 +36,7 @@ def chatBotONLINE():
         # Initialize the speech recognition and text-to-speech engines
         recognizer = sr.Recognizer()
         engine = pyttsx3.init()
+        engine.setProperty('rate', speed)
 
         # Start listening for activation keyword
         while True:
