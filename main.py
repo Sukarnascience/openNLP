@@ -5,7 +5,14 @@ import onlineNLP as onchatbot
 import pyttsx3
 import speech_recognition as sr
 
+import re
+
 hotKey = "robot"
+
+def remove_special_chars(text):
+    special_chars = '()[]!*\n^'
+    filtered_text = ''.join(char for char in text if char not in special_chars)
+    return filtered_text
 
 def convert_text_to_speech(text):
     engine = pyttsx3.init()
@@ -57,7 +64,14 @@ def chatBotONLINE():
                             print("Command:", command)
                             response = online_chatbot.get_gemini_response(command)
                             print("Gimini : ",response)
-                            engine.say(response)
+
+                            # Fixed the Output Properly
+                            plain_text_response = [remove_special_chars(text) for text in response]
+                            # Merge into one long text
+                            merged_text = ' '.join(plain_text_response)
+                            print("Reframe : ",merged_text)
+
+                            engine.say(merged_text)
                             engine.runAndWait()
 
                             if "stop" in command:
