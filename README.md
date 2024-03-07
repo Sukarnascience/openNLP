@@ -46,21 +46,15 @@ This section will be added once you provide more details about the implementatio
 
 We welcome contributions from the community! If you're interested in helping, please feel free to open an issue or pull request.
 
-**License:**
+**License:** MIT License
 
-(Specify the license under which you distribute your code)
-
-**Author:**
-
-(Include your name or organization)
+**Author:** Sukarna Jana 2024-25
 
 **Additional Notes:**
 
 * Consider adding visuals (e.g., screenshots, diagrams) to enhance understanding.
 * Use clear and concise language throughout the README.
 * Maintain the README as the project evolves to keep users informed.
-
-I hope this enhanced README.md file provides a comprehensive and informative overview of your project!
 
 ---
 

@@ -56,8 +56,8 @@ Thank you!
 
 
 # Example usage:
-chatbot = GeminiChatbot()
-input_text = "Do You know about lord Sri Krishna"
-response = chatbot.get_gemini_response(input_text)
-for chunk in response:
-    print(chunk)
+#chatbot = GeminiChatbot()
+#input_text = "Do You know about lord Sri Krishna"
+#response = chatbot.get_gemini_response(input_text)
+#for chunk in response:
+#    print(chunk)

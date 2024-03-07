@@ -1,3 +1,4 @@
 .env
 aibot/
 data/
+__pycache__/
