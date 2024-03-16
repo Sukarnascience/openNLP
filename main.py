@@ -4,6 +4,8 @@ import onlineNLP as onchatbot
 
 import pyttsx3
 import speech_recognition as sr
+from gtts import gTTS
+import pygame
 
 import re
 
@@ -19,6 +21,17 @@ def convert_text_to_speech(text):
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+
+# Function to convert text to speech
+def Google_text_to_speech(text, language='en'):
+    tts = gTTS(text=text, lang=language)
+    audio_path = 'output.mp3'
+    tts.save(audio_path)
+
+    pygame.mixer.init()
+    sound = pygame.mixer.Sound(audio_path)
+    sound.play()
+    pygame.time.wait(int(sound.get_length()) * 1000)
 
 def is_internet_available():
     try:
@@ -51,8 +64,9 @@ def chatBotONLINE():
                 print("Activation Keyword : ", activation_keyword)
 
                 if hotKey in activation_keyword:
-                    engine.say("Hello! How can I assist you?")
-                    engine.runAndWait()
+                    Google_text_to_speech("Hello! How can I assist you?")
+                    #engine.say("Hello! How can I assist you?")
+                    #engine.runAndWait()
 
                     # Listen for commands until stop keyword is said
                     while True:
@@ -73,12 +87,14 @@ def chatBotONLINE():
                             merged_text = ' '.join(plain_text_response)
                             print("Reframe : ",merged_text)
 
-                            engine.say(merged_text)
-                            engine.runAndWait()
+                            Google_text_to_speech(merged_text)
+                            #engine.say(merged_text)
+                            #engine.runAndWait()
 
                             if "stop" in command:
-                                engine.say("Goodbye!")
-                                engine.runAndWait()
+                                Google_text_to_speech("Goodbye!")
+                                #engine.say("Goodbye!")
+                                #engine.runAndWait()
                                 break  # Exit the inner loop and stop listening for commands
 
                             # Add your custom logic to handle different commands here
